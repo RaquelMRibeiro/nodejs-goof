@@ -1,0 +1,15 @@
+name: "Zap-scanner"
+on:
+  workflow_dispatch:
+
+jobs:
+  zap-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run ZAP scanner
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: "https://juice-shop.herokuapp.com/"
